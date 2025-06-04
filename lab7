@@ -1,0 +1,22 @@
+---
+- name: Install and start NGINX on localhost
+  hosts: localhost
+  become: yes
+  connection: local
+  tasks:
+    - name: Install NGINX
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Ensure NGINX is running and enabled
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+
+---->ansible -i hosts local -m ping
+---->ansible-playbook install_nginx.yml --ask-become-pass
+---->curl htttp://localhost
