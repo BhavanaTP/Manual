@@ -1,0 +1,12 @@
+->git init
+->git add .
+->git commit -m "first commit"
+->git branch -M main
+->git config --global user.name "username"
+->git config --global user.email "email"
+->ssh-genkey -t rsa -b 4096 -c <email>
+->cd ~/.ssh.........
+->git remote set-url origin <url of git>
+->git remote -v
+->git push --set-upstream origin main
+->git push
