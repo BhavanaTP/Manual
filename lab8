@@ -1,0 +1,30 @@
+->sudo apt update
+->sudo apt install -y openjdk-17
+->sudo apt install -y maven ansible git
+-> wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+->sudo sh -c 'echo deb https://pkg.jenkins.io/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+->sudo apt update
+->sudo apt install -y jenkins
+->sudo service jenkins start
+->mkdir
+->cd
+->nano hosts.ini
+->nano deploy.yml
+->pwd
+->ansible-playbook -i /home/bhava/jenkins-deployment/hosts.ini//home/bhava/jenkins-deployment/deploy.yml --ask-become-pass
+->ls /opt/myapp.jar
+->java -jar /opt/myapp.jar
+
+
+
+
+.yml file
+---
+- name: Deploy Jenkins Artifact
+  hosts: local
+  become: true
+  tasks:
+    - name: Copy .jar file to /opt
+      copy:
+        src: /mnt/c/Users/hegde/.jenkins/workspace/experiment8/target/Final8-1.0-SNAPSHOT.jar
+        dest: /opt/myapp.jar
